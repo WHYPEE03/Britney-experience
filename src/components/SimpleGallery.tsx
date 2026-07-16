@@ -205,7 +205,7 @@ const SimpleGallery: React.FC<SimpleGalleryProps> = ({
           onClick={closeModal}
         >
           <div 
-            className="relative bg-background border border-border rounded-xl max-w-6xl w-full h-[90vh] flex flex-col overflow-hidden"
+            className="relative bg-background border border-border rounded-xl max-w-6xl w-full max-h-[90vh] flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="p-4 border-b border-border flex justify-between items-center">
@@ -219,27 +219,27 @@ const SimpleGallery: React.FC<SimpleGalleryProps> = ({
                 <X size={20} />
               </button>
             </div>
-            <div className="flex-1 flex items-center justify-center p-4 relative overflow-hidden">
-              <button 
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 text-white rounded-full p-2 hover:bg-primary hover:text-primary-foreground transition-colors"
-                onClick={goToPrevious}
-              >
-                <ChevronLeft size={24} />
-              </button>
-              
-               <img 
-                 src={images[selectedImageIndex]} 
-                 alt={`${galleryName} ${selectedImageIndex + 1}`}
-                 className="max-h-[80vh] max-w-full object-contain"
-               />
-              
-              <button 
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 text-white rounded-full p-2 hover:bg-primary hover:text-primary-foreground transition-colors"
-                onClick={goToNext}
-              >
-                <ChevronRight size={24} />
-              </button>
-            </div>
+             <div className="flex-1 flex items-center justify-center p-4 relative">
+               <button 
+                 className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 text-white rounded-full p-2 hover:bg-primary hover:text-primary-foreground transition-colors"
+                 onClick={goToPrevious}
+               >
+                 <ChevronLeft size={24} />
+               </button>
+               
+                <img 
+                  src={images[selectedImageIndex]} 
+                  alt={`${galleryName} ${selectedImageIndex + 1}`}
+                  className="max-h-[80vh] max-w-full object-contain"
+                />
+               
+               <button 
+                 className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 text-white rounded-full p-2 hover:bg-primary hover:text-primary-foreground transition-colors"
+                 onClick={goToNext}
+               >
+                 <ChevronRight size={24} />
+               </button>
+             </div>
             <div className="p-4 border-t border-border overflow-x-auto">
               <div className="flex gap-2 py-2">
                 {images.map((img, idx) => (
